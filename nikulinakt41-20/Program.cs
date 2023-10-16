@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using nikulinakt41_20.Database;
 using NLog;
 using NLog.Web;
 
@@ -14,6 +16,10 @@ try
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
+    builder.Services.AddDbContext<StudDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=student_db;")));
+
 
     var app = builder.Build();
 
