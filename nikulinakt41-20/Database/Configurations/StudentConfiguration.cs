@@ -52,14 +52,6 @@ namespace nikulinakt41_20.Database.Configurations
 
             builder.Navigation(p => p.Group)
                 .AutoInclude();
-
-
-
-        }
-
-        void IEntityTypeConfiguration<Student>.Configure(EntityTypeBuilder<Student> builder)
-        {
-            throw new NotImplementedException();
         }
     }
 }
