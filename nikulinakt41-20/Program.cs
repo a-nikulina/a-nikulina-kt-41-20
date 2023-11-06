@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Connections;
 using Microsoft.EntityFrameworkCore;
 using nikulinakt41_20.Database;
 using NLog;
 using NLog.Web;
+//using nikulinakt41_20
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +20,11 @@ try
     builder.Services.AddSwaggerGen();
 
     builder.Services.AddDbContext<StudDbContext>(options =>
-        options.UseNpgsql(builder.Configuration.GetConnectionString("User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=student_db;")));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+   // builder.Services.Configure<ConnectionStrings>(
+    //builder.Configuration.GetSection(nameof(ConnectionStrings))
+//) ;
     var app = builder.Build();
 
     if (app.Environment.IsDevelopment())

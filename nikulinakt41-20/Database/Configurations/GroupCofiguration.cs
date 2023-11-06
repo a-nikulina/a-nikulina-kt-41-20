@@ -28,6 +28,7 @@ namespace nikulinakt41_20.Database.Configurations
                 .HasColumnType(ColumnType.String).HasMaxLength(100)
                 .HasComment("Наименование группы");
 
+            builder.ToTable(TableName);
         }
     }
 }
